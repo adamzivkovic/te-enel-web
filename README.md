@@ -4,15 +4,16 @@ This is a static, framework-free rebuild of the TE ENEL homepage — plain HTML/
 
 ## How to publish it on GitHub Pages
 
-1. Copy everything in this folder (`index.html`, `css/`, `assets/`) into the root of your repository (the one you already created).
+1. Copy everything in this folder (`index.html`, `css/`, `assets/`, `about/`) into the root of your repository (the one you already created) — **replace the existing files entirely**, don't merge by hand.
 2. Commit and push:
    ```
    git add .
-   git commit -m "Add homepage preview"
+   git commit -m "Update homepage"
    git push
    ```
-3. On GitHub: go to your repo → **Settings → Pages**. Under "Build and deployment", set **Source: Deploy from a branch**, branch **main**, folder **/ (root)**. Save.
+3. On GitHub: go to your repo → **Settings → Pages**. Under "Build and deployment", set **Source: Deploy from a branch**, branch **main**, folder **/ (root)**. Save (only needed the first time).
 4. GitHub will give you a URL like `https://<your-username>.github.io/<repo-name>/` within a minute or two. That's the shareable preview link — send it to colleagues.
+5. **After pushing, hard-refresh your own browser** (Ctrl+Shift+R on Windows/Linux, Cmd+Shift+R on Mac) before checking the result — browsers cache CSS/JS files aggressively, so a normal refresh can keep showing an old stylesheet even after the new one is live on GitHub. If something looks stale or half-updated, this is almost always why.
 
 Because all the paths in `index.html` are **relative** (`assets/img/...`, `css/style.css`, not absolute `/assets/...`), this works correctly whether the repo is served at the root of `username.github.io` or under a subpath like `username.github.io/repo-name/`. No configuration changes needed either way.
 
@@ -23,7 +24,8 @@ Whenever a new version is ready, just replace `index.html` (and any changed file
 ## What's in here
 
 - `index.html` — homepage markup
-- `css/style.css` — all styling
+- `css/style.css` — all styling (shared by every page)
+- `about/basic-information.html`, `about/management-board.html`, `about/supervisory-board.html` — the three About Us sub-pages, each a full standalone page with the same header/nav/footer, linked from the "About Us" dropdown in the nav (hover on desktop, always-expanded on mobile) and from tabs at the top of each page for jumping between the three
 - `assets/img/` — logo and photos (hero, about, ISO certificate scan, reference project photos)
 - `assets/docs/` — the real PDF documents linked from the page (construction license, ISO 9001 certificate, lab accreditation certificate, and the three reference project lists) — these open/download directly when clicked
 
