@@ -31,13 +31,18 @@
     <div class="wrap">
       <nav>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#management">Management</a></li>
+          <li class="has-dropdown"><a href="#about">About Us</a>
+            <ul class="dropdown">
+              <li><a href="#basic-info">Basic Information</a></li>
+              <li><a href="#management">Management &amp; Board</a></li>
+              <li><a href="#supervisory-board">Supervisory Board</a></li>
+            </ul>
+          </li>
           <li><a href="#lab">Laboratory</a></li>
           <li><a href="#references">References</a></li>
           <li><a href="#downloads">Downloads</a></li>
-          <li><a href="#">Partners</a></li>
-          <li><a href="#">News</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#news">News</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -81,7 +86,7 @@
     </div>
   </div>
 
-  <div class="wrap" style="margin-top:64px;">
+  <div class="wrap" id="basic-info" style="margin-top:64px;">
     <div class="section-tag">Company snapshot</div>
     <h2>Basic information</h2>
     <table class="info-table">
@@ -100,7 +105,7 @@
   <div class="wrap" id="management" style="margin-top:64px;">
     <div class="section-tag">Governance</div>
     <h2>Management &amp; Board</h2>
-    <div class="gov-grid">
+    <div class="gov-grid" style="grid-template-columns:1fr 1fr;">
       <div class="gov-card">
         <h4>Legal Representative</h4>
         <ul>
@@ -115,24 +120,20 @@
           <li><b>Adam Živković</b><span>Member</span></li>
         </ul>
       </div>
+    </div>
+  </div>
+
+  <div class="wrap" id="supervisory-board" style="margin-top:64px;padding-bottom:76px;">
+    <div class="section-tag">Governance</div>
+    <h2>Supervisory Board</h2>
+    <div class="gov-grid" style="grid-template-columns:1fr;max-width:420px;">
       <div class="gov-card">
-        <h4>Supervisory Board</h4>
         <ul>
           <li><b>Mile Danilović</b><span>President</span></li>
           <li><b>Dr Dragan Kovačević</b><span>Member</span></li>
           <li><b>Glišo Klasnić</b><span>Member</span></li>
         </ul>
       </div>
-    </div>
-
-    <div class="orgchart">
-      <div class="oc-node">General Manager</div>
-      <div class="oc-branches">
-        <div class="oc-branch">Construction<span>72 employees</span></div>
-        <div class="oc-branch">Engineering &amp; Management<span>22 employees</span></div>
-        <div class="oc-branch">Testing &amp; Commissioning<span>6 employees</span></div>
-      </div>
-      <div class="oc-foot">Plus organization abroad on active international projects, and an in-house Electrical Testing Laboratory reporting into the technical organization.</div>
     </div>
   </div>
 </section>
@@ -254,12 +255,8 @@
         <div class="shade"></div>
         <div class="label">Environmental Projects<small>Ecological facilities</small></div>
       </div>
-      <div class="ref-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21V9l6 3.5V9l6 3.5V9l6 3.5V21H2zm4-2h2v-3H6v3zm5 0h2v-3h-2v3zm5 0h2v-3h-2v3z"/></svg>
-        <b>Industrial Facilities</b><small>Manufacturing &amp; process plants</small>
-      </div>
+      <div class="ref-plain"><div><b>Industrial Facilities</b><small>Manufacturing &amp; process plants</small></div></div>
     </div>
-    <p style="margin-top:14px;font-size:12.5px;color:var(--slate);">Also delivered for: Titan Cement Factory, US Steel Smederevo, Aluminium Plant Podgorica, Belgrade Heating Plants &amp; Waterworks, and other industrial facilities.</p>
     <div style="margin-top:22px;padding:20px 24px;background:var(--fog);border:1px solid var(--line);border-radius:8px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;">
       <div style="font-size:14px;color:var(--slate);font-weight:600;">Full reference archive — download the complete project lists:</div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;">
@@ -286,12 +283,67 @@
   </div>
 </section>
 
-<section class="cta-band">
+<section id="partners">
+  <div class="wrap">
+    <div class="section-tag">Partners</div>
+    <h2>Equipment vendors &amp; delivery partners</h2>
+    <div class="partners-note">Logo artwork for these partners isn't in place yet — shown here as names only for now. Send over logo files (PNG or SVG, any reasonable size) and we'll drop them straight in.</div>
+    <div class="partners-grid">
+      <span class="partner-chip">ABB</span>
+      <span class="partner-chip">Alstom</span>
+      <span class="partner-chip">Babcock</span>
+      <span class="partner-chip">BMR</span>
+      <span class="partner-chip">CB&amp;I</span>
+      <span class="partner-chip">CMEC</span>
+      <span class="partner-chip">CEGT</span>
+      <span class="partner-chip">Dobersek</span>
+      <span class="partner-chip">Emerson</span>
+      <span class="partner-chip">Energoinvest</span>
+      <span class="partner-chip">Energoprojekt</span>
+      <span class="partner-chip">Engineering Feromont</span>
+      <span class="partner-chip">Fisher</span>
+      <span class="partner-chip">Foxboro</span>
+      <span class="partner-chip">Hartmann &amp; Braun (ABB)</span>
+      <span class="partner-chip">Hitachi</span>
+      <span class="partner-chip">Hochtief</span>
+      <span class="partner-chip">Honeywell</span>
+      <span class="partner-chip">IMP Invensys</span>
+      <span class="partner-chip">Južna Bačka</span>
+      <span class="partner-chip">Ludan</span>
+      <span class="partner-chip">Lurgi</span>
+      <span class="partner-chip">General Electric</span>
+      <span class="partner-chip">Metso</span>
+      <span class="partner-chip">Mitsubishi</span>
+      <span class="partner-chip">Pauwels</span>
+      <span class="partner-chip">Rafako</span>
+      <span class="partner-chip">Schneider</span>
+      <span class="partner-chip">Siemens</span>
+      <span class="partner-chip">Siemens Energy</span>
+      <span class="partner-chip">Snamprogetti</span>
+      <span class="partner-chip">Sulzer</span>
+      <span class="partner-chip">Škoda</span>
+      <span class="partner-chip">Technip</span>
+      <span class="partner-chip">Voest Alpina</span>
+      <span class="partner-chip">Yokogawa</span>
+    </div>
+  </div>
+</section>
+
+<section id="news" style="background:var(--fog);">
+  <div class="wrap">
+    <div class="section-tag">News</div>
+    <h2>Company news</h2>
+    <div class="news-empty">No news items yet — this section is ready to receive real announcements once supplied.</div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact-band">
   <div class="wrap">
     <div class="section-tag" style="color:#ffd9a6;">Get in touch</div>
-    <h2>Have a project that needs power engineering expertise?</h2>
-    <p>Reach our Belgrade head office directly, or send us your requirements and our engineering team will follow up.</p>
-    <a class="btn btn-primary" href="#contact">Contact TERMOELEKTRO ENEL</a>
+    <h2>Contact TERMOELEKTRO ENEL AD</h2>
+    <p style="margin-bottom:0;">Bačvanska 21b/III, 11107 Belgrade, Republic of Serbia<br>
+    Tel: +381 (0)11 2776 988 &nbsp;·&nbsp; +381 (0)11 2775 048<br>
+    E-mail: enel@te-enel.rs</p>
   </div>
 </section>
 
@@ -311,7 +363,7 @@
         <li><a href="#about">About Us</a></li>
         <li><a href="#management">Management</a></li>
         <li><a href="#lab">Laboratory</a></li>
-        <li><a href="#">Partners</a></li>
+        <li><a href="#partners">Partners</a></li>
         <li><a href="#downloads">Downloads</a></li>
       </ul>
     </div>
@@ -321,7 +373,7 @@
         <li><a href="#references">Power Plants</a></li>
         <li><a href="#references">Oil Refineries</a></li>
         <li><a href="#references">Industrial Facilities</a></li>
-        <li><a href="#">News</a></li>
+        <li><a href="#news">News</a></li>
       </ul>
     </div>
     <div>

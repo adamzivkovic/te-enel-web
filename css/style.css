@@ -34,8 +34,15 @@
   .brandrow .btn{padding:11px 22px;flex-shrink:0;}
   .navbar{background:var(--navy-dark);}
   nav ul{list-style:none;display:flex;justify-content:center;gap:38px;margin:0;padding:0;font-size:14px;font-weight:600;}
+  nav ul li{position:relative;}
   nav a{display:block;padding:15px 2px;color:#dce6f0;border-bottom:2px solid transparent;transition:border-color .15s, color .15s;}
   nav a:hover{border-color:var(--amber);color:#fff;}
+  nav li.has-dropdown > a::after{content:'▾';font-size:9px;margin-left:5px;vertical-align:middle;}
+  nav .dropdown{display:none;list-style:none;position:absolute;top:100%;left:0;min-width:230px;background:#fff;box-shadow:0 16px 34px -12px rgba(0,20,40,.45);border-radius:0 0 8px 8px;padding:6px 0;margin:0;z-index:70;}
+  nav li.has-dropdown:hover .dropdown{display:block;}
+  nav .dropdown li{position:static;}
+  nav .dropdown a{padding:11px 20px;color:var(--ink);font-weight:600;font-size:13.5px;border-bottom:none;}
+  nav .dropdown a:hover{background:var(--fog);color:var(--navy);border-color:transparent;}
 
   /* hero */
   .hero{position:relative;color:#fff;overflow:hidden;}
@@ -59,6 +66,7 @@
   .stat span{font-size:12.5px;color:#a9c1d9;text-transform:uppercase;letter-spacing:.05em;}
 
   section{padding:76px 0;}
+  #about, #basic-info, #management, #supervisory-board, #lab, #references, #partners, #downloads, #news, #contact{scroll-margin-top:200px;}
   .section-tag{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
   h2{font-size:29px;font-weight:800;margin:0 0 18px;color:var(--navy-dark);}
 
@@ -117,10 +125,9 @@
   .ref-card .shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,25,48,0) 40%, rgba(0,25,48,.88) 100%);}
   .ref-card .label{position:absolute;left:16px;right:16px;bottom:16px;font-weight:700;font-size:15px;}
   .ref-card .label small{display:block;font-weight:600;font-size:11.5px;color:#ffd9a6;text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
-  .ref-icon{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;color:#fff;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;}
-  .ref-icon svg{width:42px;height:42px;margin-bottom:14px;opacity:.9;}
-  .ref-icon b{font-size:15px;}
-  .ref-icon small{display:block;color:#a9c1d9;font-size:11.5px;margin-top:6px;text-transform:uppercase;letter-spacing:.08em;}
+  .ref-plain{background:var(--navy);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;}
+  .ref-plain b{font-size:15px;}
+  .ref-plain small{display:block;color:#a9c1d9;font-size:11.5px;margin-top:6px;text-transform:uppercase;letter-spacing:.08em;}
 
   /* about — company info & governance */
   .info-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px;}
@@ -137,15 +144,6 @@
   .gov-card li b{display:block;}
   .gov-card li span{font-size:12.5px;color:var(--slate);}
 
-  .orgchart{margin-top:40px;background:var(--fog);border:1px solid var(--line);border-radius:10px;padding:34px 24px;text-align:center;}
-  .orgchart .oc-node{display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:13.5px;padding:12px 20px;border-radius:6px;margin-bottom:26px;position:relative;}
-  .oc-branches{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;}
-  .oc-branches::before{content:'';position:absolute;top:-13px;left:16.6%;right:16.6%;height:2px;background:var(--line);}
-  .oc-branch{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px 14px;font-size:13.5px;font-weight:700;color:var(--navy-dark);position:relative;}
-  .oc-branch::before{content:'';position:absolute;top:-13px;left:50%;width:2px;height:13px;background:var(--line);}
-  .oc-branch span{display:block;font-weight:600;font-size:12px;color:var(--slate);margin-top:5px;}
-  .oc-foot{margin-top:22px;font-size:12.5px;color:var(--slate);}
-
   /* downloads */
   .downloads{background:var(--fog);}
   .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;}
@@ -153,6 +151,14 @@
   .dl-card:hover{border-color:var(--navy);color:var(--navy);}
   .dl-card .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);flex-shrink:0;}
   .dl-card small{display:block;font-weight:600;color:var(--slate);font-size:12px;margin-top:3px;}
+
+  /* partners */
+  .partners-note{background:#fff8e9;border:1px solid #f0d9a6;color:#7a5a10;font-size:13.5px;padding:14px 18px;border-radius:6px;margin-top:20px;}
+  .partners-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .partner-chip{background:var(--fog);border:1px solid var(--line);border-radius:20px;padding:9px 18px;font-size:13.5px;font-weight:600;color:var(--slate);}
+
+  /* news */
+  .news-empty{background:var(--fog);border:1px dashed var(--line);border-radius:8px;padding:34px 24px;text-align:center;color:var(--slate);font-size:14.5px;margin-top:30px;}
 
   /* certifications strip */
   .certs{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -183,6 +189,10 @@
 
   @media (max-width:960px){
     .navbar nav ul{flex-wrap:wrap;gap:6px 20px;}
+    nav .dropdown{display:block;position:static;background:none;box-shadow:none;padding:2px 0 8px 14px;}
+    nav li.has-dropdown{width:100%;text-align:center;}
+    nav .dropdown a{color:#a9c1d9;padding:5px 0;font-size:12.5px;text-align:center;}
+    nav .dropdown a:hover{background:none;color:#fff;}
     .about{grid-template-columns:1fr;}
     .svc-grid{grid-template-columns:repeat(2,1fr);}
     .track-grid{grid-template-columns:1fr;}
@@ -192,14 +202,12 @@
     .hero h1{font-size:32px;}
     .lab-grid{grid-template-columns:1fr;}
     .lab-scopes{grid-template-columns:1fr;}
-    .gov-grid{grid-template-columns:1fr;}
+    .gov-grid{grid-template-columns:1fr !important;}
     .dl-grid{grid-template-columns:1fr;}
-    .oc-branches{grid-template-columns:1fr;}
-    .oc-branches::before{display:none;}
-    .oc-branch::before{display:none;}
   }
 
   @media (max-width:600px){
+    #about, #basic-info, #management, #supervisory-board, #lab, #references, #partners, #downloads, #news, #contact{scroll-margin-top:280px;}
     .utility .wrap{padding:6px 16px;font-size:11.5px;gap:12px;}
     .phone{display:none;}
     .wrap{padding:0 16px;}
