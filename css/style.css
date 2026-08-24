@@ -107,7 +107,7 @@
   .lab{background:var(--navy-dark);color:#fff;}
   .lab .section-tag{color:#ffd9a6;}
   .lab h2{color:#fff;}
-  .lab-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;margin-top:10px;}
+  .lab-grid{display:grid;grid-template-columns:1fr;max-width:720px;gap:50px;align-items:start;margin-top:10px;}
   .lab p{color:#cfe0ef;font-size:15px;}
   .lab-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:9px 16px;border-radius:30px;font-size:13px;font-weight:700;margin-bottom:22px;}
   .lab-badge b{color:#ffd9a6;}
@@ -118,8 +118,6 @@
   .lab-scopes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;}
   .lab-scopes li{font-size:14px;padding-left:20px;position:relative;color:#e4edf5;}
   .lab-scopes li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--amber);}
-  .lab-cert{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 24px 50px -20px rgba(0,0,0,.5);}
-  .lab-cert img{display:block;}
 
   /* references */
   .ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;}
@@ -166,7 +164,10 @@
 
   /* partners */
   .partners-note{background:#fff8e9;border:1px solid #f0d9a6;color:#7a5a10;font-size:13.5px;padding:14px 18px;border-radius:6px;margin-top:20px;}
-  .partners-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .partners-logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;margin-top:26px;}
+  .partner-logo-card{background:#fff;border:1px solid var(--line);border-radius:8px;height:96px;display:flex;align-items:center;justify-content:center;padding:16px;}
+  .partner-logo-card img{max-width:100%;max-height:100%;object-fit:contain;}
+  .partners-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
   .partner-chip{background:var(--fog);border:1px solid var(--line);border-radius:20px;padding:9px 18px;font-size:13.5px;font-weight:600;color:var(--slate);}
 
   /* news */

@@ -29,9 +29,9 @@ Whenever a new version is ready, just replace `index.html` (and any changed file
 - `assets/img/` — logo and photos (hero, about, ISO certificate scan, reference project photos)
 - `assets/docs/` — the real PDF documents linked from the page (construction license, ISO 9001 certificate, lab accreditation certificate, and the three reference project lists) — these open/download directly when clicked
 
-## Known gap: partner logos
+## Partner logos
 
-The homepage doesn't yet include a Partners section with company logos. The company presentation lists ~35 partner companies (ABB, Siemens, Alstom, Honeywell, General Electric, Schneider, etc.) but only as plain text — no logo image files exist in the source material, and this working environment currently has no path to download images from the web. A separate list of candidate official logo source URLs (mostly Wikimedia Commons / official brand pages) is being prepared — once the actual image files are available (downloaded manually, or supplied by the company), a Partners page/section can be added the same way the reference photos were.
+The Partners section now shows real logo artwork for 30 of the ~35 companies on the list, supplied directly by the company in batches and checked one by one for watermarks and correct company identity before publishing. The remaining few (CEGT, Pauwels, plain Siemens, Metso) still show as name-only text pills — Metso specifically because the SVG file referenced for it never actually reached this working session and needs to be resent; the rest simply haven't had a logo supplied yet.
 
 ## News
 
@@ -45,4 +45,4 @@ Fixed: the nav used to render as a permanently-expanded second row on narrow scr
 
 ## Not in this preview yet
 
-A first design direction to sign off on before the rest of the site is built out: standalone pages for Licenses, full References, Partners, and Contact, plus a Serbian-language version and a dedicated mobile QA pass beyond the fixes already made. About Us now includes basic company info, Management/Board (Legal Representative, Executive Board, Supervisory Board) as real separate pages; Licenses/certificates and the reference-list PDFs now live in a dedicated Downloads section. Also still open: the contact form mechanism (needs a form service or serverless function since this is a static site), a simple way to add new reference projects/photos later without touching code, and real photos/logos for Industrial Facilities and the Partners page (see `partner-logo-sources.md`).
+A first design direction to sign off on before the rest of the site is built out: standalone pages for Licenses, full References, Partners, and Contact, plus a Serbian-language version and a dedicated mobile QA pass beyond the fixes already made. About Us now includes basic company info, Management/Board (Legal Representative, Executive Board, Supervisory Board) as real separate pages; Licenses/certificates and the reference-list PDFs now live in a dedicated Downloads section. Also still open: the contact form mechanism (needs a form service or serverless function since this is a static site), a simple way to add new reference projects/photos later without touching code, and real photos for Industrial Facilities.
