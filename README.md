@@ -23,9 +23,10 @@ Whenever a new version is ready, just replace `index.html` (and any changed file
 
 ## What's in here
 
-- `index.html` — homepage markup
+- `index.html` — homepage: hero, About/Laboratory/References/Downloads/Partners/News teasers, each linking through to its own full page
+- `laboratory.html`, `references.html`, `downloads.html`, `partners.html`, `contact.html` — every item in the main nav now has its own real page instead of scrolling to a section on the homepage
 - `css/style.css` — all styling (shared by every page)
-- `about/basic-information.html`, `about/management-board.html`, `about/supervisory-board.html` — the three About Us sub-pages, each a full standalone page with the same header/nav/footer, linked from the "About Us" dropdown in the nav (hover on desktop, always-expanded on mobile) and from tabs at the top of each page for jumping between the three
+- `about/basic-information.html`, `about/management-board.html`, `about/supervisory-board.html` — the three About Us sub-pages, each a full standalone page with the same header/nav/footer, linked from the "About Us" dropdown in the nav (hover on desktop, tap-to-expand on mobile) and from tabs at the top of each page for jumping between the three
 - `assets/img/` — logo and photos (hero, about, ISO certificate scan, reference project photos)
 - `assets/docs/` — the real PDF documents linked from the page (construction license, ISO 9001 certificate, lab accreditation certificate, and the three reference project lists) — these open/download directly when clicked
 
@@ -39,10 +40,14 @@ The Partners section now shows real logo artwork for 30 of the ~35 companies on 
 - Business News is an honest empty state — ready to receive real announcements once supplied.
 - Shareholder News has a pure-CSS year switcher (2016–2026, no JavaScript) and includes the 4 real 2026 shareholder-assembly items (headline + document name), transcribed from the screenshot supplied. **The full notice text and the actual PDF files are still pending** — each item currently shows a "document pending" label instead of a working download link. Send the PDFs (and the exact wording, if it should differ from the headline shown) and they'll be wired up as real clickable downloads. Older years (2016–2025) currently show "no items on file yet" — send that archive too if you'd like it migrated in.
 
+## Site structure — every nav item is now a real page
+
+Every top-level item in the main menu (Laboratory, References, Downloads, Partners, Contact — About Us and News already worked this way) now opens its own standalone page instead of jumping to a section on the homepage. The homepage keeps short teaser versions of each with a button through to the full page. This also fixes a side effect the old anchor-based design had on mobile (see below): tapping a menu item now always loads a real new page, so the menu closes on its own.
+
 ## Mobile navigation
 
-Fixed: the nav used to render as a permanently-expanded second row on narrow screens, pushing all real page content below the fold. It's now a proper collapsed hamburger menu (pure CSS, no JavaScript) that only expands when tapped.
+Redesigned: tapping the hamburger now opens a full-screen menu (not a dropdown squeezed under the header), and the hamburger icon itself morphs into a close (✕) button in the same spot, so there's always one obvious way to shut it — no more needing to hunt for how to get back to the page. Just as importantly, because every menu item now leads to a real separate page (see above), tapping any link — including the About Us / News sub-items — loads that page directly and the menu closes automatically; it no longer stays open over the content the way it did when everything lived on one page. Still pure CSS, no JavaScript.
 
 ## Not in this preview yet
 
-A first design direction to sign off on before the rest of the site is built out: standalone pages for Licenses, full References, Partners, and Contact, plus a Serbian-language version and a dedicated mobile QA pass beyond the fixes already made. About Us now includes basic company info, Management/Board (Legal Representative, Executive Board, Supervisory Board) as real separate pages; Licenses/certificates and the reference-list PDFs now live in a dedicated Downloads section. Also still open: the contact form mechanism (needs a form service or serverless function since this is a static site), a simple way to add new reference projects/photos later without touching code, and real photos for Industrial Facilities.
+A Serbian-language version of the site, and a full desktop/mobile QA pass beyond the fixes already made. Also still open: the contact form mechanism (the Contact page currently has phone/e-mail/map, with a "form coming soon" note — needs a form service or serverless function since this is a static site), a simple way to add new reference projects/photos later without touching code, and real photos for Industrial Facilities. The Contact page embeds a Google Maps location using the no-API-key `output=embed` format — it couldn't be visually verified in this working environment (no general internet access here), so worth a quick check once it's live that the map tile actually renders.

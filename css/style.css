@@ -69,7 +69,7 @@
   .stat span{font-size:12.5px;color:#a9c1d9;text-transform:uppercase;letter-spacing:.05em;}
 
   section{padding:76px 0;}
-  #about, #basic-info, #management, #supervisory-board, #lab, #references, #partners, #downloads, #news, #contact{scroll-margin-top:200px;}
+  [id]{scroll-margin-top:200px;}
   .section-tag{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
   h2{font-size:29px;font-weight:800;margin:0 0 18px;color:var(--navy-dark);}
 
@@ -121,14 +121,36 @@
 
   /* references */
   .ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;}
-  .ref-card{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;color:#fff;}
+  .ref-card{display:block;position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;color:#fff;transition:transform .15s;}
+  .ref-card:hover{transform:translateY(-2px);}
   .ref-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .ref-card .shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,25,48,0) 40%, rgba(0,25,48,.88) 100%);}
   .ref-card .label{position:absolute;left:16px;right:16px;bottom:16px;font-weight:700;font-size:15px;}
   .ref-card .label small{display:block;font-weight:600;font-size:11.5px;color:#ffd9a6;text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
-  .ref-plain{background:var(--navy);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;}
+  .ref-plain{display:flex;background:var(--navy);align-items:center;justify-content:center;text-align:center;padding:20px;color:#fff;transition:transform .15s;}
+  .ref-plain:hover{transform:translateY(-2px);}
   .ref-plain b{font-size:15px;}
   .ref-plain small{display:block;color:#a9c1d9;font-size:11.5px;margin-top:6px;text-transform:uppercase;letter-spacing:.08em;}
+
+  /* references sub-page sections */
+  .ref-section{margin-bottom:52px;}
+  .ref-section h3{font-size:19px;color:var(--navy-dark);margin:0 0 10px;}
+  .ref-section p{color:var(--slate);font-size:14.5px;max-width:700px;}
+
+  /* laboratory page (light-background variant of the dark homepage teaser) */
+  .lab-light{background:none;color:var(--ink);padding:0;}
+  .lab-light p{color:var(--slate);font-size:15.5px;max-width:760px;}
+  .lab-light .lab-badge{background:var(--fog);border:1px solid var(--line);color:var(--ink);}
+  .lab-light .lab-badge b{color:var(--navy-dark);}
+  .lab-light .lab-stats div{background:var(--fog);border:1px solid var(--line);}
+  .lab-light .lab-stats b{color:var(--navy-dark);}
+  .lab-light .lab-stats span{color:var(--slate);}
+  .lab-light .lab-scopes li{color:var(--ink);}
+
+  /* contact page */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .contact-map{border-radius:8px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;}
+  .contact-map iframe{width:100%;height:100%;border:0;}
 
   /* about sub-pages: tab bar */
   .about-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:36px 0 0;padding-bottom:0;}
@@ -201,17 +223,37 @@
   .note{background:#fff8e9;border:1px solid #f0d9a6;color:#7a5a10;font-size:13px;padding:10px 24px;text-align:center;}
 
   @media (max-width:960px){
-    .nav-toggle-btn{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:100%;padding:15px 0;cursor:pointer;}
-    .nav-toggle-btn span{width:24px;height:2px;background:#fff;display:block;border-radius:1px;}
+    .navbar-wrap{position:relative;}
+    .nav-toggle-btn{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;margin:0 auto;padding:0;cursor:pointer;position:relative;z-index:110;}
+    .nav-toggle-btn span{width:24px;height:2px;background:#fff;display:block;border-radius:1px;transition:transform .2s ease,opacity .15s ease;}
+    /* the hamburger morphs into an X when the menu is open — same button doubles as the close control */
+    .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(2){opacity:0;}
+    .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
     .navbar nav{width:100%;}
-    .navbar nav ul{display:none;flex-direction:column;flex-wrap:nowrap;gap:0;padding-bottom:10px;}
-    .nav-toggle-input:checked ~ nav ul{display:flex;}
-    .navbar nav ul li{width:100%;text-align:center;}
-    .navbar nav ul li > a{padding:12px 2px;}
-    nav .dropdown{display:block;position:static;background:none;box-shadow:none;padding:0 0 6px 0;}
+    /* full-screen overlay panel instead of an inline dropdown pushed below the header — scoped with
+       the direct-child combinator (>) so it targets only the top-level list, not the nested .dropdown ul,
+       which would otherwise match too (both are "ul" elements inside ".navbar nav") and inherit position:fixed. */
+    .navbar nav > ul{
+      display:none;
+      position:fixed;inset:0;
+      flex-direction:column;flex-wrap:nowrap;gap:0;
+      margin:0;padding:110px 28px 50px;
+      background:var(--navy-dark);
+      overflow-y:auto;
+      z-index:105;
+    }
+    .nav-toggle-input:checked ~ nav > ul{display:flex;}
+    .navbar nav > ul > li{width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,.12);}
+    .navbar nav > ul > li:last-child{border-bottom:none;}
+    .navbar nav > ul > li > a{padding:18px 2px;font-size:17px;}
+    nav .dropdown{display:block;position:static;background:none;box-shadow:none;padding:0 0 14px 0;}
     nav li.has-dropdown{width:100%;text-align:center;}
-    nav .dropdown a{color:#a9c1d9;padding:8px 0;font-size:12.5px;text-align:center;}
+    nav .dropdown a{color:#a9c1d9;padding:10px 0;font-size:14px;text-align:center;}
     nav .dropdown a:hover{background:none;color:#fff;}
+    /* prevent the page behind the overlay from scrolling while the menu is open (progressive enhancement) */
+    body:has(.nav-toggle-input:checked){overflow:hidden;}
     .about{grid-template-columns:1fr;}
     .svc-grid{grid-template-columns:repeat(2,1fr);}
     .track-grid{grid-template-columns:1fr;}
@@ -223,10 +265,11 @@
     .lab-scopes{grid-template-columns:1fr;}
     .gov-grid{grid-template-columns:1fr !important;}
     .dl-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;gap:32px;}
   }
 
   @media (max-width:600px){
-    #about, #basic-info, #management, #supervisory-board, #lab, #references, #partners, #downloads, #news, #contact{scroll-margin-top:280px;}
+    [id]{scroll-margin-top:280px;}
     .utility .wrap{padding:6px 16px;font-size:11.5px;gap:12px;}
     .phone{display:none;}
     .wrap{padding:0 16px;}
