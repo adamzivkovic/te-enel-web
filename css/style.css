@@ -182,6 +182,12 @@
   .gov-card ul{list-style:none;margin:0;padding:0;}
   .gov-card li{font-size:14.5px;color:var(--ink);padding:7px 0;border-bottom:1px solid var(--line);}
   .gov-card li:last-child{border-bottom:none;}
+
+  /* Organizational chart: the source image is wide with small labels, so it's shown at its natural
+     size inside a horizontally-scrollable frame (this box scrolls, never the page) with a "click to
+     view full-size" link — legible instead of squashed to fit a narrow column. */
+  .org-chart-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff;padding:18px;}
+  .org-chart-wrap img{display:block;min-width:1000px;width:100%;height:auto;cursor:zoom-in;}
   .gov-card li b{display:block;}
   .gov-card li span{font-size:12.5px;color:var(--slate);}
 
