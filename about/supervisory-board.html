@@ -11,10 +11,6 @@
 <header>
   <div class="utility">
     <div class="wrap">
-      <div class="social">
-        <a href="https://rs.linkedin.com/company/termoelektro-enel-ad" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://youtu.be/FcBPEWtp8PE" target="_blank" rel="noopener">YouTube</a>
-      </div>
       <div class="util-right">
         <div class="phone">Belgrade office · <strong>+381 (0)11 2776 988</strong></div>
         <div class="lang"><span class="active">EN</span><span>SR</span></div>
@@ -24,7 +20,6 @@
   <div class="brandrow">
     <div class="wrap">
       <a class="logo" href="../index.html"><img src="../assets/img/logo.png" alt="TERMOELEKTRO ENEL AD"></a>
-      <a class="btn btn-primary" href="../contact.html">Contact Us</a>
     </div>
   </div>
   <div class="navbar">
@@ -33,11 +28,13 @@
       <label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle menu"><span></span><span></span><span></span></label>
       <nav>
         <ul>
-          <li class="has-dropdown"><a href="basic-information.html">About Us</a>
+          <li class="has-dropdown"><a href="../index.html#about">About Us</a>
             <ul class="dropdown">
               <li><a href="basic-information.html">Basic Information</a></li>
               <li><a href="management-board.html">Management &amp; Board</a></li>
               <li><a href="supervisory-board.html">Supervisory Board</a></li>
+              <li><a href="../index.html#video">Company Overview</a></li>
+              <li><a href="../index.html#services">What We Do</a></li>
             </ul>
           </li>
           <li><a href="../laboratory.html">Laboratory</a></li>
@@ -92,7 +89,7 @@
     <div>
       <h4>Company</h4>
       <ul>
-        <li><a href="basic-information.html">About Us</a></li>
+        <li><a href="../index.html#about">About Us</a></li>
         <li><a href="management-board.html">Management</a></li>
         <li><a href="../laboratory.html">Laboratory</a></li>
         <li><a href="../partners.html">Partners</a></li>
@@ -102,6 +99,7 @@
     <div>
       <h4>Projects</h4>
       <ul>
+        <li><a href="../references.html#flagship-projects">Flagship Projects</a></li>
         <li><a href="../references.html#power-plants">Power Plants</a></li>
         <li><a href="../references.html#oil-refineries">Oil Refineries</a></li>
         <li><a href="../references.html#industrial-facilities">Industrial Facilities</a></li>
@@ -123,6 +121,19 @@
     <span>Design preview — layout &amp; content pending final approval</span>
   </div>
 </footer>
+
+<script>
+  // The only bit of JavaScript on the site — everything else is deliberately plain CSS/HTML.
+  // It exists purely to close the mobile menu overlay when a nav link is an in-page anchor
+  // (e.g. "About Us" -> #about on the homepage): a real page-to-page link already resets the
+  // menu on its own because the browser loads a fresh page, but a same-page anchor jump does not.
+  document.querySelectorAll('.navbar nav a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var cb = document.getElementById('nav-toggle');
+      if (cb) cb.checked = false;
+    });
+  });
+</script>
 
 </body>
 </html>

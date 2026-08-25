@@ -11,10 +11,6 @@
 <header>
   <div class="utility">
     <div class="wrap">
-      <div class="social">
-        <a href="https://rs.linkedin.com/company/termoelektro-enel-ad" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://youtu.be/FcBPEWtp8PE" target="_blank" rel="noopener">YouTube</a>
-      </div>
       <div class="util-right">
         <div class="phone">Belgrade office · <strong>+381 (0)11 2776 988</strong></div>
         <div class="lang"><span class="active">EN</span><span>SR</span></div>
@@ -24,7 +20,6 @@
   <div class="brandrow">
     <div class="wrap">
       <a class="logo" href="index.html"><img src="assets/img/logo.png" alt="TERMOELEKTRO ENEL AD"></a>
-      <a class="btn btn-primary" href="contact.html">Contact Us</a>
     </div>
   </div>
   <div class="navbar">
@@ -33,11 +28,13 @@
       <label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle menu"><span></span><span></span><span></span></label>
       <nav>
         <ul>
-          <li class="has-dropdown"><a href="about/basic-information.html">About Us</a>
+          <li class="has-dropdown"><a href="index.html#about">About Us</a>
             <ul class="dropdown">
               <li><a href="about/basic-information.html">Basic Information</a></li>
               <li><a href="about/management-board.html">Management &amp; Board</a></li>
               <li><a href="about/supervisory-board.html">Supervisory Board</a></li>
+              <li><a href="index.html#video">Company Overview</a></li>
+              <li><a href="index.html#services">What We Do</a></li>
             </ul>
           </li>
           <li><a href="laboratory.html">Laboratory</a></li>
@@ -68,11 +65,12 @@
   <div class="wrap">
   <div class="lab lab-light">
     <div class="lab-badge">Accreditation Certificate <b>No. 01-459</b></div>
-    <p>TERMOELEKTRO ENEL AD operates its own accredited electrical testing laboratory and can perform final testing and issue certification directly — no external subcontractor required for the standard electrical testing scope. The laboratory's technical manager is <b>Sretko Marjanović</b>.</p>
-    <div class="lab-stats" style="max-width:560px;">
-      <div><b>20</b><span>Accredited test methods</span></div>
-      <div><b>53</b><span>Testing instruments</span></div>
-      <div><b>25+</b><span>Assignments since 2018</span></div>
+    <p>TERMOELEKTRO ENEL AD operates its own accredited electrical testing laboratory and can perform final testing and issue certification directly — no external subcontractor required for the standard electrical testing scope.</p>
+    <p>This certificate, issued by the Accreditation Body of Serbia (ATS) under the international ISO/IEC 17025 competence standard, is independent, government-recognized confirmation that our laboratory is technically qualified to reliably and impartially perform the tests listed below.</p>
+    <div class="lab-stats">
+      <a class="lab-stat" href="assets/docs/test-methods-2026.pdf" target="_blank"><b>20</b><span>Accredited test methods</span><small>View document ↗</small></a>
+      <a class="lab-stat" href="assets/docs/technical-equipment-2026.pdf" target="_blank"><b>53</b><span>Testing instruments</span><small>View document ↗</small></a>
+      <a class="lab-stat" href="assets/docs/test-methods-2026.pdf" target="_blank"><b>25+</b><span>Assignments since 2018</span><small>View document ↗</small></a>
     </div>
     <h3 style="font-size:17px;color:var(--navy-dark);margin:34px 0 14px;">Accredited scope — 6 areas, 20 test methods</h3>
     <ul class="lab-scopes" style="max-width:760px;">
@@ -102,7 +100,7 @@
     <div>
       <h4>Company</h4>
       <ul>
-        <li><a href="about/basic-information.html">About Us</a></li>
+        <li><a href="index.html#about">About Us</a></li>
         <li><a href="about/management-board.html">Management</a></li>
         <li><a href="laboratory.html">Laboratory</a></li>
         <li><a href="partners.html">Partners</a></li>
@@ -112,6 +110,7 @@
     <div>
       <h4>Projects</h4>
       <ul>
+        <li><a href="references.html#flagship-projects">Flagship Projects</a></li>
         <li><a href="references.html#power-plants">Power Plants</a></li>
         <li><a href="references.html#oil-refineries">Oil Refineries</a></li>
         <li><a href="references.html#industrial-facilities">Industrial Facilities</a></li>
@@ -133,6 +132,19 @@
     <span>Design preview — layout &amp; content pending final approval</span>
   </div>
 </footer>
+
+<script>
+  // The only bit of JavaScript on the site — everything else is deliberately plain CSS/HTML.
+  // It exists purely to close the mobile menu overlay when a nav link is an in-page anchor
+  // (e.g. "About Us" -> #about on the homepage): a real page-to-page link already resets the
+  // menu on its own because the browser loads a fresh page, but a same-page anchor jump does not.
+  document.querySelectorAll('.navbar nav a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var cb = document.getElementById('nav-toggle');
+      if (cb) cb.checked = false;
+    });
+  });
+</script>
 
 </body>
 </html>
