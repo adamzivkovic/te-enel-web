@@ -23,6 +23,8 @@
   .lang{display:flex;gap:8px;font-weight:700;}
   .lang span{cursor:pointer;}
   .lang span.active{color:var(--navy);}
+  .lang a{color:inherit;text-decoration:none;cursor:pointer;opacity:.72;}
+  .lang a:hover{opacity:1;text-decoration:underline;}
   .phone strong{color:var(--navy);}
   .brandrow{padding:22px 0;}
   .brandrow .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;}
