@@ -169,6 +169,13 @@
   .info-table td:first-child{color:var(--slate);font-weight:700;width:44%;padding-right:16px;}
   .info-table td:last-child{color:var(--ink);}
 
+  /* Contact page: icon-only LinkedIn/YouTube links (light-background variant of the footer's .foot-social) */
+  .contact-social{display:flex;gap:10px;}
+  .contact-social a{width:34px;height:34px;border-radius:50%;background:var(--fog);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:background .12s,border-color .12s;}
+  .contact-social a:hover{background:var(--navy);border-color:var(--navy);}
+  .contact-social a:hover svg{fill:#fff;}
+  .contact-social svg{width:16px;height:16px;fill:var(--navy);transition:fill .12s;}
+
   .gov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px;}
   .gov-card{background:var(--fog);border:1px solid var(--line);border-radius:8px;padding:22px 20px;}
   .gov-card h4{margin:0 0 12px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);}
@@ -311,6 +318,11 @@
 .news-item .doc-link{margin:0;font-size:13px;color:var(--slate);line-height:1.6;}
 .news-item .doc-link a{color:var(--navy);font-weight:700;text-decoration:underline;}
 .news-item .doc-link a:hover{color:var(--navy-dark);}
+
+/* Business News: LinkedIn post embeds — responsive via aspect-ratio so LinkedIn's fixed-size iframe
+   (default 504x899) scales cleanly on mobile without any JavaScript. */
+.li-embed{max-width:504px;width:100%;aspect-ratio:504/899;position:relative;margin-top:14px;border-radius:8px;overflow:hidden;background:var(--fog);border:1px solid var(--line);}
+.li-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
 /* News: shareholder-news year tabs (pure CSS, radio-button hack, no JS) */
 .year-pills{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 26px;}
