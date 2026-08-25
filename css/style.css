@@ -28,8 +28,10 @@
   .phone strong{color:var(--navy);}
   .brandrow{padding:22px 0;}
   .brandrow .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .brand-block{min-width:0;}
   .logo{display:block;flex-shrink:1;min-width:0;}
   .logo img{display:block;width:auto;height:auto;max-height:80px;max-width:100%;}
+  .brand-tagline{margin-top:7px;font-size:13px;font-weight:600;color:var(--navy);letter-spacing:.02em;}
   .navbar{background:var(--navy-dark);}
   .navbar-wrap{position:relative;}
   .nav-toggle-input{display:none;}
@@ -312,6 +314,7 @@
     .wrap{padding:0 16px;}
     .brandrow{padding:14px 0;}
     .logo img{max-height:54px;}
+    .brand-tagline{font-size:10.5px;margin-top:5px;}
     section{padding:52px 0;}
     .hero-inner{padding:64px 0 46px;}
     .hero h1{font-size:26px;}
